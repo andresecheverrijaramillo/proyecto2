@@ -72,7 +72,10 @@ def get_ipv4(instance_id):
 def terminate_ec2_instance(instance_id):
     try:
         archivo.write("Terminate EC2 instance")
-        archivo.write(resource_ec2.terminate_instances(InstanceIds=[instance_id]))
+        print("Terminate EC2 instance")
+        util=resource_ec2.terminate_instances(InstanceIds=[instance_id])
+        archivo.write(util)
+        print(util)
         newInstances.remove(instance_id)
         return "Instancia " + instance_id+ " terminada"
     except Exception as e:
